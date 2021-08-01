@@ -1,0 +1,107 @@
+<div class="section" id="contact">
+    <div class="cc-contact-information" style="background-image: url('assets/images/contact.jpg');">
+      <div class="container">
+        <div class="cc-contact">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="card mb-0" data-aos="zoom-in">
+                <div class="h4 text-center title">Contact Me</div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <form name="form" (ngSubmit)="f.form.valid ; f.resetForm()" #f="ngForm" novalidate>
+                        <div class="p pb-3">
+                          <strong>Feel free to contact me </strong>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col">
+                            <div class="input-group">
+                              <input class="form-control" type="text" required name="name" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" placeholder="Name"
+                              [(ngModel)]="contact.name"
+                                 />
+
+                            </div>
+                            <div *ngIf="name.errors && (name.invalid && name.touched)">
+                              <span *ngIf="name.errors.required">
+                                <small class="text-danger"> Name is Required!</small>
+                              </span>
+
+                             </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col">
+                            <div class="input-container">
+                              <input class="form-control" type="text" minlength="10" required name="subject" #subject="ngModel" [class.is-invalid]="subject.invalid && subject.touched" placeholder="Subject"
+                              [(ngModel)]="contact.subject"
+                                  />
+                            </div>
+                            <div *ngIf="subject.errors && (subject.invalid && subject.touched)">
+                              <span *ngIf="subject.errors.required">
+                                <small class="text-danger"> Subject is Required!</small>
+                              </span>
+                              <span *ngIf="subject.errors.minlength">
+                                <small class="text-danger"> Subject should contain atleast 10 characters!</small>
+                              </span>
+                             </div>
+
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col">
+                            <div class="input-group">
+                              <input class="form-control" type="email" name="email"  #email="ngModel" [class.is-invalid]="email.invalid && email.touched" placeholder="E-mail"
+                              [(ngModel)]="contact.email"
+
+                                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
+                            </div>
+                            <div *ngIf="email.errors && (email.invalid && email.touched)">
+                              <span *ngIf="email.errors.required">
+                                <small class="text-danger"> Email is Required!</small>
+                              </span>
+                              <span *ngIf="email.errors.pattern">
+                                <small class="text-danger"> Invalid Email</small>
+                              </span>
+                             </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col">
+                            <div class="form-group">
+                              <textarea class="form-control" name="message" #message="ngModel" placeholder="Your Message"
+                              [(ngModel)]="contact.message"
+                                ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <button  [disabled]="!f.valid" (click)="onSubmit()"class="btn btn-primary" type="submit" > Send</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                        <p class="mb-0">
+                            <strong>Phone</strong>
+                        </p>
+                        <p class="pb-2">+91 7014821575</p>
+                        <p class="mb-0">
+                            <strong>Email</strong>
+                        </p>
+                        <p>namanvj26@gmail.com</p>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+  <ng-snotify class="material"></ng-snotify>
+
+
